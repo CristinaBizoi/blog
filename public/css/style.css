@@ -1,0 +1,32 @@
+
+
+.colred{
+    height: 50px;
+    background-color: red;
+}
+.colblue{
+    height: 50px;
+    background-color: blue;
+}
+.colgreen{
+    height: 50px;
+    background-color: green;
+}
+.colgray{
+    height: 50px;
+    background-color: gray;
+}
+.img-listare{
+    max-width: 50px;
+
+}
+.jumbotron{
+    overflow: hidden;
+}
+.jumbotronbanner>img{
+    width: 60%;
+    
+}
+.coloane{
+    column-count: 2;
+}
