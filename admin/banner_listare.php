@@ -7,7 +7,7 @@ if(!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] != true){
 
 include("../_inc/db.php");
 $con = connect();
-if(isset($data_inceput) && isset($data_final) && !empty($data_inceput) && !empty($data_final)){
+if(isset($_GET["banner_interval_inceput"]) && isset($_GET["banner_interval_final"]) && !empty($_GET["banner_interval_inceput"]) && !empty($_GET["banner_interval_final"])){
     $data_inceput = mysqli_real_escape_string($con, $_GET["banner_interval_inceput"]);
     $data_final = mysqli_real_escape_string($con, $_GET["banner_interval_final"]);
     if(strtotime($data_inceput) < strtotime($data_final)){

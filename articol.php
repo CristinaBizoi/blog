@@ -20,18 +20,18 @@ $galerie = getArray($result1);
 //   echo "Key = ".$key."<br/>";
 // }
 // exit();
-
+$id_articol = $_GET["id"];
 if(isset($_POST) && !empty($_POST)){
-  $id_articol = $_GET["id"];
   $query1 = "INSERT INTO `comentarii` SET
          `comentarii`.`username`='".$_POST["username"]."',
          `comentarii`.`continut`='".$_POST["continut"]."',
-         `comentarii`.`id_articol`='".$_POST["id_articol"]."'";
+         `comentarii`.`id_articol`='".$id_articol."'";
   queryactive($con, $query1);
 }
-$query2 = "SELECT `comentarii`.`username`, `comentarii`.`continut`, `comentarii`.`id_articol`
+$query2 = "SELECT `comentarii`.`username`, `comentarii`.`continut`, `comentarii`.`id_articol`, `comentarii`.`status`
           FROM `comentarii`
-          WHERE `id_articol`='".$_GET["id"]."'";
+          WHERE `id_articol`='".$id_articol."'
+          AND `comentarii`.`status` = '1'";
 $rezultat = queryactive($con, $query2);
 $comentarii = getArray($rezultat);
 // var_dump($comentarii);
@@ -199,7 +199,7 @@ $comentarii = getArray($rezultat);
           <div class="card my-4">
             <h5 class="card-header">Leave a Comment:</h5>
             <div class="card-body">
-              <form action="./articol.php?id=<?php $id_articol; ?>" method="post">
+              <form action="./articol.php?id=<?php  echo $id_articol; ?>" method="post">
                 <div class="form-group">
                   <label for="nume">Nume</label>
                   <input type="text" name="username" class="form-control" id="username" placeholder="Introduce username">
@@ -207,7 +207,6 @@ $comentarii = getArray($rezultat);
                 <div class="form-group">
                   <textarea class="form-control" name="continut" id="continut" rows="3"></textarea>
                 </div>
-                <input type="hidden" name="id_articol" value="<?php echo $_GET["id"]; ?>">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
             </div>

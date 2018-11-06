@@ -46,7 +46,7 @@
     
       $sql2= "SELECT `homepage_images`.`id`, `homepage_images`.`poza`, `homepage_images`.`titlu`
             FROM `homepage_images`
-            WHERE (`homepage_images`.`data_start`<'".$data_azi."') AND ('".$data_azi."' < `homepage_images`.`data_end`)
+            WHERE (`homepage_images`.`data_start`<'".$data_azi."') AND ('".$data_azi."' < `homepage_images`.`data_end`) AND `homepage_images`.`status`= '1'
             ORDER BY `homepage_images`.`data_start` DESC
             LIMIT 1";
 
@@ -115,10 +115,16 @@
     <!-- Page Content -->
     <div class="container">
     <!-- Jumbotron -->
+    <?php
+    if(!empty($jumbotron)){
+      
+    ?>
       <div class="jumbotron" style="background-image: url('./public/images/<?php echo $jumbotron["poza"]; ?>');">
         <h1> <?php echo $jumbotron["titlu"]; ?> </h1>
       </div>
-
+      <?php
+    }
+      ?>
       <div class="row">
 
         <!-- Blog Entries Column -->
