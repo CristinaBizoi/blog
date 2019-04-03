@@ -1,20 +1,35 @@
-
-
-.colred{
-    height: 50px;
-    background-color: red;
+body{
+    background-color:#f7f7f7;
+    padding-top:0 !important;
 }
-.colblue{
-    height: 50px;
-    background-color: blue;
+nav{
+    background-color:#ffffff;
+    margin-bottom: 50px;
 }
-.colgreen{
-    height: 50px;
-    background-color: green;
+.card{
+    border:0;
 }
-.colgray{
-    height: 50px;
-    background-color: gray;
+nav>.container{
+    padding: 15px;
+}
+nav a{
+    color:#222222;
+}
+#nav-title{
+    color:#6f6f6f;
+    font-size: 20px;
+}
+.center-button{
+    text-align: center;
+}
+.btn-custom{
+    border: 1px solid #7b7b7b;
+    color: #7b7b7b;
+    border-radius:0;
+}
+.btn-custom:hover{
+    color:white;
+    background-color: rgb(214, 79, 16);
 }
 .img-listare{
     max-width: 50px;

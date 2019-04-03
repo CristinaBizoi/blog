@@ -85,9 +85,9 @@
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg ">
       <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <a class="navbar-brand" id="nav-title" href="#">Personal Blog </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -130,9 +130,6 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-          <h1 class="my-4">Page Heading
-            <small>Secondary Text</small>
-          </h1>
 
           <!-- Blog Post -->
           <?php  
@@ -144,14 +141,18 @@
             }
           ?>
           <div class="card mb-4">
+            <div class="card-header-custom">
+              <div class="text-muted text-center pt-5 pb-1">
+                <?php echo $article["data_adaugare"]; ?>
+              </div>
+              <h2 class="card-title text-center pb-3"><?php echo $article["nume"]; ?></h2>
+            </div>
             <img class="card-img-top" src="./public/images/<?php echo  $poza_articol;?>" alt="Card image cap">
             <div class="card-body">
-              <h2 class="card-title"><?php echo $article["nume"]; ?></h2>
               <p class="card-text"><?php echo $article["descriere"]; ?></p>
-              <a href="./articol.php?id=<?php echo $article["id"]; ?>" class="btn btn-primary">Read More &rarr;</a>
-            </div>
-            <div class="card-footer text-muted">
-              <?php echo $article["data_adaugare"]; ?>
+              <div class="center-button pt-2 pb-4">
+                <a href="./articol.php?id=<?php echo $article["id"]; ?>" class="btn btn-custom mx-auto">Read More</a>
+              </div>
             </div>
           </div>
           <?php 
