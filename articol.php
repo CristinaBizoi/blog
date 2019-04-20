@@ -57,10 +57,6 @@ $comentarii = getArray($rezultat);
 
     <!-- Custom styles for this template -->
     <link href="./public/css/blog-home.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   </head>
 
@@ -150,20 +146,11 @@ $comentarii = getArray($rezultat);
               $active = "";
             }
           ?>
-            <li data-target="#myCarousel" data-slide-to="0" class="<?php echo $active; ?>"></li>
+            <li data-target="#myCarousel" data-slide-to="<?php echo $i; ?>" class="<?php echo $active; ?>"></li>
           <?php  } ?>
           </ol>
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
-            <!-- <div class="item active">
-              <img src="la.jpg" alt="Chania">
-              <div class="carousel-caption">
-                <h3>Los Angeles</h3>
-                <p>LA is always so much fun!</p>
-              </div>
-            </div> --> 
-
-    
             <?php foreach ($galerie as $key => $picture){
               if( $key == 0 ){
                 $active = "active";
@@ -171,9 +158,9 @@ $comentarii = getArray($rezultat);
                 $active = "";
               }
               ?>
-              <div class="item <?php echo $active; ?> ">
-                <img src="./public/images/<?php echo $picture["poza"]; ?>" alt="Chicago">
-                <div class="carousel-caption">
+              <div class="carousel-item <?php echo $active; ?> ">
+                <img src="./public/images/<?php echo $picture["poza"]; ?>" class="d-block w-100" alt="Chicago">
+                <div class="carousel-caption d-none d-md-block">
                   <h3><?php echo $picture["titlu"]; ?></h3>
                 </div>
               </div>
@@ -183,12 +170,12 @@ $comentarii = getArray($rezultat);
           </div>
 
           <!-- Left and right controls -->
-          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
+          <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
+          <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
         </div>
@@ -274,7 +261,7 @@ $comentarii = getArray($rezultat);
 
     <!-- Bootstrap core JavaScript -->
     <script src="./public/vendor/jquery/jquery.min.js"></script>
-    <script src="./public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./public/js/bootstrap.min.js"></script>
 
   </body>
 
