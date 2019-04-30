@@ -36,7 +36,7 @@
     }
     
       $sql1= "SELECT `articole`.`id`, `articole`.`id_categorie`, `articole`.`id_admin`, `articole`.`poza`, `articole`.`descriere`, `articole`.`nume`, `articole`.`data_adaugare`,
-            `articole`.`status`, `categorii`.`id`, `categorii`.`nume` as `nume_categorie`, `utilizatori`.`id`, `utilizatori`.`username` as `nume_utilizator`
+            `articole`.`status`, `categorii`.`id` as `id_categorie`, `categorii`.`nume` as `nume_categorie`, `utilizatori`.`id` as `id_utilizator`, `utilizatori`.`username` as `nume_utilizator`
             FROM `articole`
             LEFT JOIN `categorii` ON `articole`.`id_categorie` = `categorii`.`id`
             LEFT JOIN `utilizatori` ON `articole`.`id_admin` = `utilizatori`.`id`
