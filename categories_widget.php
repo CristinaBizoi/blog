@@ -21,8 +21,8 @@
 ?>
 
 
- <div class="card my-4">
-            <h5 class="card-header">Categories</h5>
+ <div class="categories-widget my-5">
+            <h4 class="widget-title">Categories</h5>
             <div class="card-body">
               <div class="row">
                 <div class="col-lg-12 coloane">

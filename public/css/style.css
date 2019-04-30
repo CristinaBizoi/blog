@@ -1,13 +1,88 @@
 body{
-    background-color:#f7f7f7;
+    background-color:white;
     padding-top:0 !important;
+    font-family: Raleway,sans-serif;
+    font-size: 14px;
+}
+a,a:hover{
+    text-decoration: none;
+    color: black;
+}
+.widget-title,h2{
+
+    font-family: 'Josefin Sans',sans-serif;
+    font-weight: 700;
 }
 nav{
     background-color:#ffffff;
     margin-bottom: 50px;
+    border-bottom: 1px solid #f4f4f4;
 }
-.card{
+.article-description{
+    position: relative;
     border:0;
+    padding-top: 200px;
+    margin-bottom: 50px;
+}
+.entry-text{
+    border: 1px solid #dcdcdc;
+    padding: 225px 30px 30px 40px;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    margin-left: 30px;
+}
+.entry-author{
+    display:inline-block;
+    position: absolute;
+    left:-25px;
+    font-size: 18px;
+}
+.author-username{
+    display: inline-block;
+    padding-left: 30px;
+    transform: rotate(90deg);
+    transform-origin: top left;
+    font-weight: 600;
+    font-size: 18px;
+}
+.image-media{
+    display: block;
+    width: 90%;
+    overflow:hidden;
+    position: absolute;
+    z-index: 2;
+    max-height: 400px;
+    top: 0;
+}
+.meta-option{
+    padding-right: 30px;
+    color:#7b7b7b;
+
+}
+.meta-option:hover{
+    color: black;
+}
+.entry-summary{
+    padding-top: 30px;
+}
+.image-description{
+    width:100%;
+}
+.publish-date{
+    display:inline-block;
+    position: absolute;
+    transform: rotate(90deg) translateX(100%);
+    transform-origin: top right;
+    top: 15px;
+    right: 30px;
+}
+.entry-name{
+    font-size: 25px;
+}
+.search-articol{
+    border: 0;
+    border-bottom: 1px solid #dcdcdc;
 }
 nav>.container{
     padding: 15px;
@@ -26,10 +101,11 @@ nav a{
     border: 1px solid #7b7b7b;
     color: #7b7b7b;
     border-radius:0;
+    font-size: 15px;
 }
 .btn-custom:hover{
     color:white;
-    background-color: rgb(214, 79, 16);
+    background-color: black;
 }
 .img-listare{
     max-width: 50px;

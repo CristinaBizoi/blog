@@ -35,10 +35,13 @@
         $where ="1";
     }
     
-      $sql1= "SELECT `articole`.`id`, `articole`.`poza`, `articole`.`descriere`, `articole`.`nume`, `articole`.`data_adaugare`,
-            `articole`.`status`
+      $sql1= "SELECT `articole`.`id`, `articole`.`id_categorie`, `articole`.`id_admin`, `articole`.`poza`, `articole`.`descriere`, `articole`.`nume`, `articole`.`data_adaugare`,
+            `articole`.`status`, `categorii`.`id`, `categorii`.`nume` as `nume_categorie`, `utilizatori`.`id`, `utilizatori`.`username` as `nume_utilizator`
             FROM `articole`
-            WHERE `status` = '1' AND ".$where." ORDER BY `data_adaugare` desc";
+            LEFT JOIN `categorii` ON `articole`.`id_categorie` = `categorii`.`id`
+            LEFT JOIN `utilizatori` ON `articole`.`id_admin` = `utilizatori`.`id`
+            WHERE `articole`.`status` = '1' AND ".$where." ORDER BY `data_adaugare` desc";
+
             // echo $sql1;
       $result1 = mysqli_query($con, $sql1);
       $articles = getArray($result1);
@@ -55,63 +58,10 @@
       $result2 = mysqli_query($con, $sql2);
       $jumbotron = getRow($result2);
       $iesire = closedb ($con);
-
+      include("./header.php");
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Blog Home - Start Bootstrap Template</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="./public/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="./public/css/blog-home.css" rel="stylesheet">
-    <link href="./public/css/style.css" rel="stylesheet">
-
-    
-
-  </head>
-
-  <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg ">
-      <div class="container">
-        <a class="navbar-brand" id="nav-title" href="#">Personal Blog </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-      
     <!-- Page Content -->
     <div class="container">
     <!-- Jumbotron -->
@@ -140,21 +90,34 @@
               $poza_articol = "default.jpg";
             }
           ?>
-          <div class="card mb-4">
-            <div class="card-header-custom">
-              <div class="text-muted text-center pt-5 pb-1">
-                <?php echo $article["data_adaugare"]; ?>
-              </div>
-              <h2 class="card-title text-center pb-3"><?php echo $article["nume"]; ?></h2>
+          <article class="article-description">
+            <div class="image-media">
+              <img class="image-description" src="./public/images/<?php echo  $poza_articol;?>" alt="Card image cap">
             </div>
-            <img class="card-img-top" src="./public/images/<?php echo  $poza_articol;?>" alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text"><?php echo $article["descriere"]; ?></p>
-              <div class="center-button pt-2 pb-4">
+            <div class="entry-text">
+              <div class="publish-date">
+                <?php echo date("d M Y", strtotime($article["data_adaugare"])); ?>
+              </div>
+              <div class="entry-author">
+                <i class="fas fa-user"></i>
+                <div class="author-username">
+                  <?php echo $article["nume_utilizator"]; ?> 
+                </div>
+              </div>
+              <div class="entry-name">
+                <h2><?php echo $article["nume"]; ?></h2>
+              </div>
+              <div class="entry-meta">
+                <a href="" class="meta-option"><i class="far fa-comment"></i> Comments </a>
+                <a href="" class="meta-option"><i class="far fa-bookmark"> <?php echo $article["nume_categorie"]; ?></i></a>
+              <div class="entry-summary">
+                <p><?php echo $article["descriere"]; ?></p>
+              </div>
+              <div class="more-btn">
                 <a href="./articol.php?id=<?php echo $article["id"]; ?>" class="btn btn-custom mx-auto">Read More</a>
               </div>
             </div>
-          </div>
+          </article>
           <?php 
           }
           ?>
@@ -174,30 +137,16 @@
         <div class="col-md-4">
 
           <!-- Search Widget -->
-          <div class="card my-4">
-            <h5 class="card-header">Search</h5>
-            <div class="card-body">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
-              </div>
-            </div>
+          <div class="search-form">
+            <form class="form-inline md-form form-sm">
+              <input class="form-control search-articol form-control-sm mr-3 w-75" type="text" placeholder="Search..." aria-label="Search">
+              <i class="fas fa-search" aria-hidden="true"></i>
+            </form>
           </div>
-
         
           <?php
             include("./categories_widget.php");
           ?>
-
-          <!-- Side Widget -->
-          <div class="card my-4">
-            <h5 class="card-header">Side Widget</h5>
-            <div class="card-body">
-              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-            </div>
-          </div>
 
         </div>
 
