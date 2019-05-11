@@ -108,8 +108,8 @@
                 <h2><?php echo $article["nume"]; ?></h2>
               </div>
               <div class="entry-meta">
-                <a href="" class="meta-option"><i class="far fa-comment"></i> Comments </a>
-                <a href="" class="meta-option"><i class="far fa-bookmark"> <?php echo $article["nume_categorie"]; ?></i></a>
+                <a href="" class="meta-option light-text"><i class="far fa-comment"></i> Comments </a>
+                <a href="" class="meta-option light-text"><i class="far fa-bookmark"></i> <?php echo $article["nume_categorie"]; ?></a>
               <div class="entry-summary">
                 <p><?php echo $article["descriere"]; ?></p>
               </div>
@@ -147,12 +147,17 @@
           <?php
             include("./categories_widget.php");
           ?>
-
+          <!-- about me -->
+          <div class="about-widget">
+            <h4 class="widget-title"> About me </h4>
+          </div>
         </div>
+
 
       </div>
       <!-- /.row -->
-
+    
+      
     </div>
     <!-- /.container -->
 
