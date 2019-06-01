@@ -3,20 +3,34 @@ body{
     padding-top:0 !important;
     font-family: Raleway,sans-serif;
     font-size: 14px;
+    line-height: 2;
 }
 a,a:hover{
     text-decoration: none;
     color: black;
 }
+input:focus, input:active{
+    border: 0;
+}
+input{
+    border-radius: 0 !important;
+}
 .light-text{
     color:#7b7b7b;
 }
-.widget-title,h2{
-
-    font-family: 'Josefin Sans',sans-serif;
-    font-weight: normal;
+.transform-uppercase{
     text-transform: uppercase;
+}
+.text-josefin-style,h2{
+     font-family: 'Josefin Sans',sans-serif;
+
+}
+.widget-title,h2{
+    font-weight: normal;
     font-size: 16px;
+}
+.title-text{
+    font-size: 28px;
 }
 nav{
     background-color:#ffffff;
@@ -42,18 +56,18 @@ nav{
     position: absolute;
     left:-25px;
     font-size: 18px;
+    z-index: -1;
 }
 .author-username{
     display: inline-block;
     padding-left: 30px;
     transform: rotate(90deg);
     transform-origin: top left;
-    padding-top: 5px;
+    padding-top: 2px;
 }
 .author-username, .publish-date{
     font-weight: bold;
     font-size: 13px;
-    text-transform: uppercase;
 }
 .image-media{
     display: block;
@@ -85,15 +99,36 @@ nav{
     transform: rotate(90deg) translateX(100%);
     transform-origin: top right;
     top: 15px;
-    right: 10px;
+    right: 5px;
 }
 .entry-name>h2{
     font-size: 28px;
+}
+.search-form{
+    position: relative;
 }
 #nume, #continut,.search-articol{
     border: 0;
     border-bottom: 1px solid #dcdcdc;
 }
+.search-articol:focus{
+    border-bottom: 1px solid #dcdcdc;
+}
+.search-articol{
+    width: 100%;
+}
+.search-icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
 nav>.container{
     padding: 15px;
 }
@@ -123,15 +158,47 @@ nav a{
 
 }
 .jumbotron{
+    height: 540px;
     overflow: hidden;
+    background-size: cover;
 }
-.jumbotronbanner>img{
-    width: 60%;
-    
+.jumbotron-description{
+    background-color:rgba(255,255,255,.9);
+    padding: 35px 40px;
+    width: 50%;
+}
+#widget-aboutme-image{
+    max-width: 100%;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background-image:url("../images/aboutme.jpg");
+    background-size: cover;
+    background-position: center;
+
+}
+.widget-aboutme-description{
+    color: #333333;
 }
 .categories-widget ul li{
     margin-bottom: 20px;
 
+}
+.page-title{
+    font-size: 34px;
+}
+.image-preview-article{
+    background-size: cover;
+    height: 670px;
+}
+.comments-title{
+    position: relative;
+    top: -32px;
+}
+.comments-title>span{
+    background-color: white;
+    padding: 0 10px;
+    font-size: 16px;
 }
 .form-comments{
     border: 1px solid #d2d2d2;

@@ -24,7 +24,7 @@
 
 
  <div class="categories-widget my-5">
-            <h4 class="widget-title">Categories</h4>
+            <h4 class="widget-title transform-uppercase text-josefin-style">Categories</h4>
             <div class="card-body">
               <div class="row">
                 <div class="col-lg-12">

@@ -1,9 +1,12 @@
 <?php
 include("./_inc/db.php");
 $con = connect();
-$query = "SELECT `articole`.`nume`, `articole`.`poza`, `articole`.`descriere`, `articole`.`continut`, `articole`.`data_adaugare`
+$query = "SELECT `articole`.`nume`, `articole`.`poza`, `articole`.`descriere`, `articole`.`continut`, `articole`.`data_adaugare`,
+        `articole`.`id_categorie`, `categorii`.`id` as `id_categorie`, `categorii`.`nume` as `nume_categorie`
         FROM `articole`
-        WHERE `id`='".$_GET["id"]."'";
+        LEFT JOIN `categorii` ON `articole`.`id_categorie` = `categorii`.`id`
+        WHERE `articole`.`id`='".$_GET["id"]."'";
+
 $result = queryactive($con, $query);
 $articol = getRow($result);
 $sql1= "SELECT  `galerie`.`titlu`, `galerie`.`poza`, `galerie`.`id`, `galerie`.`status`
@@ -47,21 +50,16 @@ $meta_image = $articol["poza"];
       <div class="row">
 
         <!-- Post Content Column -->
-        <div class="col-lg-8">
+        <div class="col-lg-12">
 
           <!-- Title -->
-          <h1 class="mt-4"><?php echo $articol["nume"]; ?></h1>
+          <h1 class="mt-4 page-title text-josefin-style transform-uppercase text-center"><?php echo $articol["nume"]; ?></h1>
 
-          <!-- Author -->
-          <p class="lead">
-            by
-            <a href="#">Start Bootstrap</a>
-          </p>
-
-          <hr>
-
-          <!-- Date/Time -->
-          <p>Posted on <?php echo $articol["data_adaugare"]; ?> </p>
+          <!-- Meta text -->
+          <div class="entry-meta">
+              <a href="./articol.php?id=<?php echo $articol["id"]; ?>#comment-section" class="meta-option light-text"><i class="far fa-comment"></i> Comments </a>
+              <a href="./index.php?categorie_id=<?php echo $articol["id_categorie"]; ?>" class="meta-option light-text"><i class="far fa-bookmark"></i> <?php echo $articol["nume_categorie"]; ?></a>
+          </div>
 
           <hr>
 
@@ -73,10 +71,9 @@ $meta_image = $articol["poza"];
             $articol_poza = "default.jpg";
           }
           ?>
-          <img class="img-fluid rounded" src="./public/images/<?php echo  $articol_poza; ?>" alt="">
-      
 
-          <hr>
+          <div class="image-preview-article"style="background-image: url('./public/images/<?php echo $articol_poza; ?>');"> </div>
+         
 
           <!-- Post Content -->
          <p> <?php echo $articol["continut"]; ?> </p>
@@ -135,7 +132,7 @@ $meta_image = $articol["poza"];
             <div class="card-body">
               <form action="./articol.php?id=<?php  echo $id_articol; ?>" method="post" class="form-comments">
                 <div class="comments-form-header">
-                  <h5>Leave a Comment</h5>
+                  <h5 class="text-center">Leave a Comment</h5>
                 </div>
                 <div class="form-group">
                   <input type="text" name="username" class="form-control" id="nume" placeholder="Name">
@@ -149,31 +146,26 @@ $meta_image = $articol["poza"];
               </form>
             </div>
           </div>
-
-          <!-- Single Comment -->
-          <?php foreach($comentarii as $key => $comentariu){
-
-          ?>
-          <div class="media mb-4">
-            <div class="media-body">
-              <h5 class="mt-0"><?php echo $comentariu["username"]; ?></h5>
-              <?php echo $comentariu["continut"]; ?>
-            </div>
+          <hr>
+          <div class="d-flex justify-content-center comments-title text-josefin-style">
+            <span> <?php echo count($comentarii); ?> Comments </span>
           </div>
-          <?php
-          }
-          ?>
+          
+          <div id="comment-section">
+            <!-- Single Comment -->
+            <?php foreach($comentarii as $key => $comentariu){
 
-        </div>
-        <!-- Sidebar Widgets Column -->
-        <div class="col-md-4">
-
-          <!-- Categories Widget -->
-          <?php
-            include("./categories_widget.php");
-          ?>
-
-          <!-- Side Widget -->
+            ?>
+            <div class="media mb-4">
+              <div class="media-body">
+                <h5 class="mt-0"><?php echo $comentariu["username"]; ?></h5>
+                <?php echo $comentariu["continut"]; ?>
+              </div>
+            </div>
+            <?php
+            }
+            ?>
+          </div>
 
         </div>
 

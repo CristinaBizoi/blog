@@ -69,8 +69,10 @@
     if(!empty($jumbotron)){
       
     ?>
-      <div class="jumbotron" style="background-image: url('./public/images/<?php echo $jumbotron["poza"]; ?>');">
-        <h1> <?php echo $jumbotron["titlu"]; ?> </h1>
+      <div class="jumbotron d-flex justify-content-center align-items-center" style="background-image: url('./public/images/<?php echo $jumbotron["poza"]; ?>');">
+        <div class="jumbotron-description text-center">
+          <h1> <?php echo $jumbotron["titlu"]; ?> </h1>
+        </div>
       </div>
       <?php
     }
@@ -95,21 +97,22 @@
               <img class="image-description" src="./public/images/<?php echo  $poza_articol;?>" alt="Card image cap">
             </div>
             <div class="entry-text">
-              <div class="publish-date">
+              <div class="publish-date transform-uppercase">
                 <?php echo date("d M Y", strtotime($article["data_adaugare"])); ?>
               </div>
               <div class="entry-author">
                 <i class="fas fa-user"></i>
-                <div class="author-username">
+                <div class="author-username transform-uppercase">
                   <?php echo $article["nume_utilizator"]; ?> 
                 </div>
               </div>
-              <div class="entry-name">
-                <h2><?php echo $article["nume"]; ?></h2>
+              <div class="entry-name ">
+                <a href="./articol.php?id=<?php echo $article["id"]; ?>"><h2 class="title-text"><?php echo $article["nume"]; ?></h2></a>
               </div>
               <div class="entry-meta">
-                <a href="" class="meta-option light-text"><i class="far fa-comment"></i> Comments </a>
-                <a href="" class="meta-option light-text"><i class="far fa-bookmark"></i> <?php echo $article["nume_categorie"]; ?></a>
+                <a href="./articol.php?id=<?php echo $article["id"]; ?>#comment-section" class="meta-option light-text"><i class="far fa-comment"></i> Comments </a>
+                <a href="./index.php?categorie_id=<?php echo $article["id_categorie"]; ?>" class="meta-option light-text"><i class="far fa-bookmark"></i> <?php echo $article["nume_categorie"]; ?></a>
+              </div>
               <div class="entry-summary">
                 <p><?php echo $article["descriere"]; ?></p>
               </div>
@@ -137,21 +140,26 @@
         <div class="col-md-4">
 
           <!-- Search Widget -->
-          <div class="search-form">
+          <div class="search-form mb-5">
             <form class="form-inline md-form form-sm">
-              <input class="form-control search-articol form-control-sm mr-3 w-75" type="text" placeholder="Search..." aria-label="Search">
-              <i class="fas fa-search" aria-hidden="true"></i>
+              <input class="form-control search-articol form-control-sm w-100" type="text" placeholder="Search..." aria-label="Search">
+              <span class="search-icon"><i class="fas fa-search light-text" aria-hidden="true"></i></span>
             </form>
           </div>
-        
+          <!-- about me -->
+            <div class="about-widget">
+              <h4 class="widget-title transform-uppercase"> About me </h4>
+              <div id="widget-aboutme-image" class="mx-auto my-4"> </div>
+              <div class="widget-aboutme-description text-center px-3">
+                <p>  Ut dui mi, cursus id hendrerit non, laoreet sit amet arcu. Phasellus eu sem at elit ultrices venenatis. Mauris eget mi vel eros tempus varius vel vel libero.</p>
+              </div>
+            </div>
+  
+          <!-- categories widget -->
           <?php
             include("./categories_widget.php");
           ?>
-          <!-- about me -->
-          <div class="about-widget">
-            <h4 class="widget-title"> About me </h4>
-          </div>
-        </div>
+                </div>
 
 
       </div>
