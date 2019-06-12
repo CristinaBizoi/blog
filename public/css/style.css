@@ -90,6 +90,21 @@ nav{
 .entry-summary{
     padding-top: 30px;
 }
+/* imagine efect */
+.hover{
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-filter: opacity(80%);
+	filter: opacity(80%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.hover:hover {
+	-webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-filter: grayscale(0);
+	filter: grayscale(0);
+}
 .image-description{
     width:100%;
 }
@@ -190,6 +205,12 @@ nav a{
 .image-preview-article{
     background-size: cover;
     height: 670px;
+}
+
+/* carousel style */
+.carousel-item{
+    max-height: 450px;
+    -webkit-transform: scale(0.5);
 }
 .comments-title{
     position: relative;

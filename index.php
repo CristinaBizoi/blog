@@ -34,19 +34,35 @@
         $id_categorie = "";
         $where ="1";
     }
-    
+      //paginare
+      if(!isset($_GET['page'])){
+        $page = 1;
+      }else{
+        $page = $_GET['page'];
+      }
+
+      $results_per_page = 2;
+      $page_first_results = ($page - 1)*$results_per_page;
+
+    //selecteaza articolele
       $sql1= "SELECT `articole`.`id`, `articole`.`id_categorie`, `articole`.`id_admin`, `articole`.`poza`, `articole`.`descriere`, `articole`.`nume`, `articole`.`data_adaugare`,
             `articole`.`status`, `categorii`.`id` as `id_categorie`, `categorii`.`nume` as `nume_categorie`, `utilizatori`.`id` as `id_utilizator`, `utilizatori`.`username` as `nume_utilizator`
             FROM `articole`
             LEFT JOIN `categorii` ON `articole`.`id_categorie` = `categorii`.`id`
             LEFT JOIN `utilizatori` ON `articole`.`id_admin` = `utilizatori`.`id`
-            WHERE `articole`.`status` = '1' AND ".$where." ORDER BY `data_adaugare` desc";
-
+            WHERE `articole`.`status` = '1' AND ".$where."
+             ORDER BY `data_adaugare` desc
+             LIMIT ".$page_first_results.", ".$results_per_page."";
+            
             // echo $sql1;
+            // exit();
       $result1 = mysqli_query($con, $sql1);
       $articles = getArray($result1);
+      $number_of_results =  mysqli_num_rows($result1);
+      
+      $number_of_pages = ceil( $number_of_results / $results_per_page);
+       // jumbotron
       $data_azi = date("Y-m-d H:i:s");
-    
       $sql2= "SELECT `homepage_images`.`id`, `homepage_images`.`poza`, `homepage_images`.`titlu`
             FROM `homepage_images`
             WHERE (`homepage_images`.`data_start`<'".$data_azi."') AND ('".$data_azi."' < `homepage_images`.`data_end`) AND `homepage_images`.`status`= '1'
@@ -55,8 +71,11 @@
 
       // echo $sql2;
       // exit();
+     
       $result2 = mysqli_query($con, $sql2);
       $jumbotron = getRow($result2);
+    
+
       $iesire = closedb ($con);
       include("./header.php");
 ?>
@@ -94,7 +113,7 @@
           ?>
           <article class="article-description">
             <div class="image-media">
-              <img class="image-description" src="./public/images/<?php echo  $poza_articol;?>" alt="Card image cap">
+              <img class="image-description hover " src="./public/images/<?php echo  $poza_articol;?>" alt="Card image cap">
             </div>
             <div class="entry-text">
               <div class="publish-date transform-uppercase">
@@ -129,6 +148,12 @@
             <li class="page-item">
               <a class="page-link" href="#">&larr; Older</a>
             </li>
+            <?php
+              for($page=1; $page<= $number_of_pages; $page++){
+                echo '<a href="./index.php?page='.$page.'">'.$page.'</a>';
+              }
+
+            ?>
             <li class="page-item disabled">
               <a class="page-link" href="#">Newer &rarr;</a>
             </li>
