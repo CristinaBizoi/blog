@@ -86,11 +86,11 @@ include ("./header.php");
     <div id="page-wrapper">
         <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Editare categorie</h1>
+                    <h1 class="page-header">Editare utilizator</h1>
                 </div>
         </div>        <!-- /.col-lg-12 -->
         <div class = "row">
-            <div class =" col-md-12">
+            <div class =" col-md-12 edit-form">
             <form action="./utilizatori_editare.php?id=<?php echo $id ;?>" method="post">
                 <div class="form-group">
                     <label for="username">Username</label>
@@ -108,7 +108,7 @@ include ("./header.php");
             </div>
          </div>
          <div class = "row">
-            <div class =" col-md-12">
+            <div class =" col-md-12 ">
             <form action="./utilizatori_editare.php?id=<?php echo $id ;?>" method="post">
                 <div class="form-group">
                     <label for="password">Parola noua</label>

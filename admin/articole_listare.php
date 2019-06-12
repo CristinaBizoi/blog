@@ -54,7 +54,7 @@ include ("./header.php");
             <div class="col-md-12">
             <form class="form-inline" action="./articole_listare.php" method="get">
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">Nume:</label>
 
                     <input type="text" class="form-control" name="name_articol" id="name" placeholder="Artiocul meu" value="<?php echo $termen; ?>">
                 </div>
@@ -77,7 +77,7 @@ include ("./header.php");
                                             <th>Numele categoriei</th>
                                             <th>Data adaugarii</th>
                                             <th>Status</th>
-                                            <th>Gol</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -98,9 +98,9 @@ include ("./header.php");
                                             ?>
                                             <td><img class="img-listare" src="../public/images/<?php echo $poza_articol; ?>"></td>
                                             <td><?php echo $article["nume"]; ?></td>
-                                            <td><?php echo $article["descriere"]; ?></td>
+                                            <td><?php echo substr($article["descriere"], 0, 50); ?></td>
                                             <td><?php echo $article["categorie_nume"]; ?></td>
-                                            <td><?php echo $article["data_adaugare"]; ?></td>
+                                            <td><?php echo date('Y-m-d', strtotime($article["data_adaugare"])); ?></td>
                                             <td><?php echo $article["status"]; ?></td>
                                             <td>
                                                 <a href="./articole_sterge.php?id=<?php echo $article["id"];?>"><i class="fa fa-trash"></i> </a>

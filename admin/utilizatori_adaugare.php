@@ -60,7 +60,7 @@ if(isset($_POST)&&!empty($_POST)){
        header("Location:./utilizatori_listare.php");
        exit();
     }else{
-        $mesaj = "Ai erori ba boule";
+        $mesaj = "Nu ati completat toate campurile obligatorii";
         echo $mesaj;
     }
 

@@ -78,20 +78,20 @@
                         </li>
                         
                         <li>
-                            <a href="./categorii_listare.php"><i class="fa fa-dashboard fa-fw"></i> Categorii</a>
+                            <a href="./categorii_listare.php"><i class="fa fa-bookmark"></i> Categorii</a>
                         </li>
                         
                         <li>
-                            <a href="./articole_listare.php"><i class="fa fa-dashboard fa-fw"></i> Articole</a>
+                            <a href="./articole_listare.php"><i class="fa fa-file"></i> Articole</a>
                         </li>
                         <li>
-                            <a href="./utilizatori_listare.php"><i class="fa fa-dashboard fa-fw"></i>Utilizatori</a>
+                            <a href="./utilizatori_listare.php"><i class="fa fa-user"></i> Utilizatori</a>
                         </li>
                         <li>
-                            <a href="./banner_listare.php"><i class="fa fa-dashboard fa-fw"></i>Banner</a>
+                            <a href="./banner_listare.php"><i class="fa fa-image"></i></i> Banner</a>
                         </li>
                         <li>
-                            <a href="./comentarii_listare.php"><i class="fa fa-dashboard fa-fw"></i>Comentarii</a>
+                            <a href="./comentarii_listare.php"><i class="fa fa-comment"></i> Comentarii</a>
                         </li>
                     </ul>
                 </div>

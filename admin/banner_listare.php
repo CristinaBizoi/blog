@@ -37,21 +37,21 @@ include("./header.php");
 ?>
 
  <div id="page-wrapper">
-  <div class="row">
-            <div class="col-md-12">
-            <form class="form-inline" action="./banner_listare.php" method="get">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="date" class="form-control" name="banner_interval_inceput" id="banner_interval_inceput" value="<?php echo $termen_start; ?>">
-                    <input type="date" class="form-control" name="banner_interval_final" id="banner_interval_final" value="<?php echo $termen_finish; ?>">
-                </div>
-                <button type="submit" class="btn btn-default">Cauta</button>
-                </form>
-            </div>
-        </div>
     <div class = "row">
             <div class =" col-md-12">
             <h1 class="page-header">Bannere <small><a href="./adaugare_banner.php"><i class = "fa fa-plus"></i></a></small></h1>
+            <div class="row">
+                <div class="col-md-12 pt-3">
+                    <form class="form-inline" action="./banner_listare.php" method="get">
+                        <div class="form-group ">
+                            <label for="name">Cautare:</label>
+                            <input type="date" class="form-control" name="banner_interval_inceput" id="banner_interval_inceput" value="<?php echo $termen_start; ?>">
+                            <input type="date" class="form-control" name="banner_interval_final" id="banner_interval_final" value="<?php echo $termen_finish; ?>">
+                        </div>
+                        <button type="submit" class="btn btn-default">Cauta</button>
+                    </form>
+                </div>
+            </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped">

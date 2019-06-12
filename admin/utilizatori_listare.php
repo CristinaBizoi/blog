@@ -37,10 +37,10 @@ include ("./header.php");
                                         <tr>
                                             <th>#</th>
                                             <th>Username</th>
-                                            <th>email</th>
+                                            <th>Email</th>
                                             <th>Data adaugarii</th>
                                             <th>Status</th>
-                                            <th>Gol</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>

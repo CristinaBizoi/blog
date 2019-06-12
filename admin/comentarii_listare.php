@@ -39,7 +39,7 @@ include ("./header.php");
                                             <th>Continut</th>
                                             <th>Id_Articol</th>
                                             <th>Status</th>
-                                            <th>Operatii</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>

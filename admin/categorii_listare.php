@@ -40,7 +40,7 @@ include ("./header.php");
                                             <th>Nume</th>
                                             <th>Data adaugarii</th>
                                             <th>Status</th>
-                                            <th>Gol</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -51,7 +51,7 @@ include ("./header.php");
                                         <tr>
                                             <td><?php echo $category["id"]; ?></td>
                                             <td><?php echo $category["nume"]; ?></td>
-                                            <td><?php echo $category["data_adaugare"]; ?></td>
+                                            <td><?php echo date('Y-m-d', strtotime($category["data_adaugare"])); ?></td>
                                             <td><?php echo $category["status"]; ?></td>
                                             <td>
                                                 <a href="./categorii_sterge.php?id=<?php echo $category["id"];?>"><i class="fa fa-trash"></i> </a>

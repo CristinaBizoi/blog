@@ -76,7 +76,7 @@ $meta_image = $articol["poza"];
          
 
           <!-- Post Content -->
-         <p> <?php echo $articol["continut"]; ?> </p>
+         <p> <?php echo nl2br($articol["continut"]); ?> </p>
        
           <!-- Carousel -->
        

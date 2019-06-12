@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_POST["act"]) && $_POST["act"]=="login"){
-    echo $_POST["username"]." Vrea sa se logheze";
+    // echo $_POST["username"]." Vrea sa se logheze";
 
     include ("../_inc/db.php");
     $con = connect();
@@ -34,7 +34,7 @@ if(isset($_POST["act"]) && $_POST["act"]=="login"){
 
        );
 
-    //    echo "User logayt";
+    //    echo "User logat";
      }else{
         // echo "Parola nu se potriveste";
      }

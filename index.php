@@ -41,7 +41,7 @@
         $page = $_GET['page'];
       }
 
-      $results_per_page = 1;
+      $results_per_page = 2;
       $page_first_results = ($page - 1)*$results_per_page;
 
     //selecteaza articolele
@@ -140,6 +140,7 @@
               <div class="entry-name ">
                 <a href="./articol.php?id=<?php echo $article["id"]; ?>"><h2 class="title-text"><?php echo $article["nume"]; ?></h2></a>
               </div>
+              <div class="text-underline"></div>
               <div class="entry-meta">
                 <a href="./articol.php?id=<?php echo $article["id"]; ?>#comment-section" class="meta-option light-text"><i class="far fa-comment"></i> Comments </a>
                 <a href="./index.php?categorie_id=<?php echo $article["id_categorie"]; ?>" class="meta-option light-text"><i class="far fa-bookmark"></i> <?php echo $article["nume_categorie"]; ?></a>
@@ -206,12 +207,9 @@
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+    <?php
+    include("./footer.php");
+    ?>
 
     <!-- Bootstrap core JavaScript -->
     <script src="./public/vendor/jquery/jquery.min.js"></script>
