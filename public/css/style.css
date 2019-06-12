@@ -65,7 +65,7 @@ nav{
     transform-origin: top left;
     padding-top: 2px;
 }
-.author-username, .publish-date{
+.author-username, .publish-date, .comments-username{
     font-weight: bold;
     font-size: 13px;
 }
@@ -236,4 +236,8 @@ nav a{
 }
 .comments-form-header>h5{
     font-weight: 600;
+}
+.comment{
+    border: 1px solid #ccc;
+    padding: 1em 0.7em;
 }

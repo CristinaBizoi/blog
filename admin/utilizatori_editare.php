@@ -111,16 +111,16 @@ include ("./header.php");
             <div class =" col-md-12">
             <form action="./utilizatori_editare.php?id=<?php echo $id ;?>" method="post">
                 <div class="form-group">
-                    <label for="password">Parola</label>
-                    <input type="password" class="form-control" id="password"  name="password" placeholder="password" >
+                    <label for="password">Parola noua</label>
+                    <input type="password" class="form-control" id="password"  name="password" placeholder="New password" >
                 </div>
                 <div class="form-group">
-                    <label for="password_re">Parola 2</label>
-                    <input type="password" class="form-control" id="password_re"  name="password_re" placeholder="password_re">
+                    <label for="password_re">Reintroduceti parola</label>
+                    <input type="password" class="form-control" id="password_re"  name="password_re" placeholder="New password">
                 </div>
                 <div class="form-group">
-                    <label for="password_a">Parola actuala</label>
-                    <input type="password" class="form-control" id="password_a"  name="password_a" placeholder="password_a" >
+                    <label for="password_a">Parola veche</label>
+                    <input type="password" class="form-control" id="password_a"  name="password_a" placeholder="old password" >
                 </div>
                 <input type="hidden" name="act" value="changepassword">
                 <button type="submit" class="btn btn-default">Submit</button>

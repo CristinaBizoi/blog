@@ -32,7 +32,7 @@ include ("./header.php");
             <form action="./categorii_adaugare.php" method="post">
                 <div class="form-group">
                     <label for="nume">Nume</label>
-                    <input type="text" class="form-control" id="nume"  name="nume" placeholder="categorie">
+                    <input type="text" class="form-control" id="nume"  name="nume" placeholder="Nume categorie">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
                 </form>

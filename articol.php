@@ -135,10 +135,10 @@ $meta_image = $articol["poza"];
                   <h5 class="text-center">Leave a Comment</h5>
                 </div>
                 <div class="form-group">
-                  <input type="text" name="username" class="form-control" id="nume" placeholder="Name">
+                  <input type="text" name="username" class="form-control" id="nume" placeholder="Name" required>
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" name="continut" id="continut" placeholder="Comment" rows="5"></textarea>
+                  <textarea class="form-control" name="continut" id="continut" placeholder="Comment" rows="5" required></textarea>
                 </div>
                 <div class="d-flex">
                   <button type="submit" class="btn btn-custom mx-auto mt-3">Post Comment</button>
@@ -156,9 +156,9 @@ $meta_image = $articol["poza"];
             <?php foreach($comentarii as $key => $comentariu){
 
             ?>
-            <div class="media mb-4">
+            <div class="media mb-4 comment">
               <div class="media-body">
-                <h5 class="mt-0"><?php echo $comentariu["username"]; ?></h5>
+                <h5 class="mt-0 comments-username"><?php echo $comentariu["username"]; ?></h5>
                 <?php echo $comentariu["continut"]; ?>
               </div>
             </div>

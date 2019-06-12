@@ -10,7 +10,7 @@ $con = connect();
 $query = "SELECT `comentarii`.`id`, `comentarii`.`username`, `comentarii`.`continut`, `comentarii`.`status`, `comentarii`.`id_articol`
         FROM `comentarii`
         WHERE 1";
-echo $query;
+// echo $query;
 $result = queryactive($con, $query);
 $comentarii = getArray($result);
 

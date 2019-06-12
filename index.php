@@ -41,26 +41,38 @@
         $page = $_GET['page'];
       }
 
-      $results_per_page = 2;
+      $results_per_page = 1;
       $page_first_results = ($page - 1)*$results_per_page;
 
     //selecteaza articolele
-      $sql1= "SELECT `articole`.`id`, `articole`.`id_categorie`, `articole`.`id_admin`, `articole`.`poza`, `articole`.`descriere`, `articole`.`nume`, `articole`.`data_adaugare`,
+      $sql_count= "SELECT `articole`.`id`, `articole`.`id_categorie`, `articole`.`id_admin`, `articole`.`poza`, `articole`.`descriere`, `articole`.`nume`, `articole`.`data_adaugare`,
             `articole`.`status`, `categorii`.`id` as `id_categorie`, `categorii`.`nume` as `nume_categorie`, `utilizatori`.`id` as `id_utilizator`, `utilizatori`.`username` as `nume_utilizator`
             FROM `articole`
             LEFT JOIN `categorii` ON `articole`.`id_categorie` = `categorii`.`id`
             LEFT JOIN `utilizatori` ON `articole`.`id_admin` = `utilizatori`.`id`
             WHERE `articole`.`status` = '1' AND ".$where."
-             ORDER BY `data_adaugare` desc
-             LIMIT ".$page_first_results.", ".$results_per_page."";
+             ORDER BY `data_adaugare` desc";
             
             // echo $sql1;
             // exit();
+      $result1 = mysqli_query($con, $sql_count);
+      $articles_no = getArray($result1);
+      $number_of_results =  count($articles_no);      
+      $number_of_pages = ceil( $number_of_results / $results_per_page);
+
+
+      $sql1= "SELECT `articole`.`id`, `articole`.`id_categorie`, `articole`.`id_admin`, `articole`.`poza`, `articole`.`descriere`, `articole`.`nume`, `articole`.`data_adaugare`,
+      `articole`.`status`, `categorii`.`id` as `id_categorie`, `categorii`.`nume` as `nume_categorie`, `utilizatori`.`id` as `id_utilizator`, `utilizatori`.`username` as `nume_utilizator`
+      FROM `articole`
+      LEFT JOIN `categorii` ON `articole`.`id_categorie` = `categorii`.`id`
+      LEFT JOIN `utilizatori` ON `articole`.`id_admin` = `utilizatori`.`id`
+      WHERE `articole`.`status` = '1' AND ".$where."
+        ORDER BY `data_adaugare` desc
+        LIMIT ".$page_first_results.", ".$results_per_page."";
+            
       $result1 = mysqli_query($con, $sql1);
       $articles = getArray($result1);
-      $number_of_results =  mysqli_num_rows($result1);
-      
-      $number_of_pages = ceil( $number_of_results / $results_per_page);
+
        // jumbotron
       $data_azi = date("Y-m-d H:i:s");
       $sql2= "SELECT `homepage_images`.`id`, `homepage_images`.`poza`, `homepage_images`.`titlu`
@@ -144,19 +156,18 @@
           }
           ?>
           <!-- Pagination -->
-          <ul class="pagination justify-content-center mb-4">
+          <ul class="pagination justify-content-around mb-4">
+           <?php if($page<$number_of_pages){ ?>
             <li class="page-item">
-              <a class="page-link" href="#">&larr; Older</a>
+              <a class="btn btn-custom" href="./index.php?page=<?php echo $page+1; ?>">&larr; Older</a>
             </li>
-            <?php
-              for($page=1; $page<= $number_of_pages; $page++){
-                echo '<a href="./index.php?page='.$page.'">'.$page.'</a>';
-              }
+            <?php } ?>
 
-            ?>
-            <li class="page-item disabled">
-              <a class="page-link" href="#">Newer &rarr;</a>
-            </li>
+             <?php if($page>1){ ?>
+              <li class="page-item">
+                <a class="btn btn-custom" href="./index.php?page=<?php echo $page-1; ?>">Newer &rarr;</a>
+              </li>
+            <?php } ?>
           </ul>
 
         </div>

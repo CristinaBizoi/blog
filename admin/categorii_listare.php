@@ -24,11 +24,8 @@ include ("./header.php");
 
     <div id="page-wrapper">
         <div class="row">
-                <div class="col-lg-4">
-                    <h1 class="page-header">Categorie</h1>
-                </div>
-                <div class="col-lg-8">
-                    <a href="./categorii_adaugare.php">Adaugare</a>
+                <div class="col-lg-12">
+                    <h1 class="page-header">Categorii <small><a href="./categorii_adaugare.php"><i class = "fa fa-plus"></i></a></small></h1>
                 </div>
         </div>        <!-- /.col-lg-12 -->
         <div class = "row">

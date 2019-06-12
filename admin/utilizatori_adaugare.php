@@ -82,19 +82,19 @@ include ("./header.php");
             <form action="./utilizatori_adaugare.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username"  name="username" placeholder="username">
+                    <input type="text" class="form-control" id="username"  name="username" placeholder="Introduceti username">
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="email" class="form-control" id="email"  name="email" placeholder="email">
+                    <input type="email" class="form-control" id="email"  name="email" placeholder="Introduceti email">
                 </div>
                 <div class="form-group">
                     <label for="password">Parola</label>
-                    <input type="password" class="form-control" id="password"  name="password" placeholder="password">
+                    <input type="password" class="form-control" id="password"  name="password" placeholder="Introduceti parola">
                 </div>
                 <div class="form-group">
                     <label for="password_re">Parola din nou</label>
-                    <input type="password" class="form-control" id="password_re"  name="password_re" placeholder="password_re">
+                    <input type="password" class="form-control" id="password_re"  name="password_re" placeholder="Reintroduceti parola">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
                 </form>

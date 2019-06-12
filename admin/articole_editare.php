@@ -85,12 +85,12 @@ if(isset($_POST)&&!empty($_POST)){
             FROM `galerie`
             LEFT JOIN `articole` ON `galerie`.`id_articol` = `articole`.`id` 
             WHERE `articole`.`id` = '".$_GET["id"]."'";
-    echo $sql1;
+    // echo $sql1;
 
     $result1 = queryactive($con, $sql1);
-    var_dump($result1);
+    // var_dump($result1);
     $galerie = getArray($result1);
-    var_dump($galerie);
+    // var_dump($galerie);
 
      $iesire = closedb ($con);
 include ("./header.php");
@@ -101,7 +101,7 @@ include ("./header.php");
     <div id="page-wrapper">
         <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Adaugare articole</h1>
+                    <h1 class="page-header">Editare articole</h1>
                 </div>
         </div>        <!-- /.col-lg-12 -->
         <div class = "row">
@@ -144,15 +144,13 @@ include ("./header.php");
                     <label for="poza">Poza</label>
                     <input type="file" id="poza" name="poza">
                     <input type = "hidden" name = "poza_veche" value = "<?php echo $article["poza"];?>">
-                    <p class="help-block">Example block-level help text here.</p>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
                 </form>
             </div>
             <div class =" col-md-6">
                 <div class="form-group">
-                    <label for="galerie">Adauga galerie</label>
-                    <a href="galerie_adaugare.php?id=<?php echo $_GET["id"]; ?>"><i class="fa fa-plus-square"></i></a>
+                    <h3 class="pt-2">Adauga galerie <span> <a href="galerie_adaugare.php?id=<?php echo $_GET["id"]; ?>"><i class="fa fa-plus-square"></i></a></span></h3>
                 </div>
               <table class="table">
                   <thead>

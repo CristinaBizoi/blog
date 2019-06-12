@@ -46,7 +46,7 @@ include ("./header.php");
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">articole <small><a href="./articole_adaugare.php"><i class = "fa fa-plus"></i></a></small></h1>
+                <h1 class="page-header">Articole <small><a href="./articole_adaugare.php"><i class = "fa fa-plus"></i></a></small></h1>
 
             </div>
         </div>        <!-- /.col-lg-12 -->

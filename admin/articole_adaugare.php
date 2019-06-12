@@ -79,7 +79,7 @@ include ("./header.php");
             <form action="./articole_adaugare.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nume">Nume</label>
-                    <input type="text" class="form-control" id="nume"  name="nume" placeholder="nume">
+                    <input type="text" class="form-control" id="nume"  name="nume" placeholder="Nume">
                 </div>
                 <div class="form-group">
                     <label for="id_categorie">Categorie</label>
@@ -93,7 +93,7 @@ include ("./header.php");
                 </div>
                 <div class="form-group">
                     <label for="descriere">Descriere</label>
-                    <input type="text" class="form-control" id="descriere"  name="descriere" placeholder="descrierea articolului">
+                    <input type="text" class="form-control" id="descriere"  name="descriere" placeholder="Descrierea articolului">
                 </div>
                 <div class="form-group">
                     <label for="continut">Continut</label>
@@ -102,7 +102,6 @@ include ("./header.php");
                 <div class="form-group">
                     <label for="poza">Poza</label>
                     <input type="file" id="poza" name="poza">
-                    <p class="help-block">Example block-level help text here.</p>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
                 </form>
