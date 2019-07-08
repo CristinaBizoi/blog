@@ -25,6 +25,12 @@ input{
      font-family: 'Josefin Sans',sans-serif;
 
 }
+.nav-contact{
+    width:50%;
+}
+#nav-title{
+    width: 50%;
+}
 .widget-title,h2{
     font-weight: normal;
     font-size: 16px;
@@ -48,7 +54,7 @@ input{
 .title-text:hover::after{
     display: block;
     transition: 2s;
-    width:100%;
+    width: 50%;
 }
 nav{
     background-color:#ffffff;
@@ -258,4 +264,61 @@ nav a{
 /*  style for admin  */
 .edit-form{
     padding-bottom: 50px;
+}
+.link-footer{
+    color:white;
+    font-weight: bold;
+}
+/* responsive design */
+@media only screen and (max-width:750px){
+    .image-media{
+        width: 100%;
+        position: relative;
+    }
+    .entry-text{
+        margin-left:0;
+        padding-top: 15px;
+    }
+    .publish-date{
+        transform: none;
+        top: 0;
+    
+    }
+    .entry-author{
+        text-align: right;
+        position: relative;
+        left:0;
+        font-size: 13px;
+    }
+    .lg-hidden-entry{
+        padding-bottom: 60px;
+        width: 100%;
+    }
+    .author-username{
+        transform: none;
+        padding-left: 5px;
+
+    }
+    .publish-date, .entry-author{
+        position: relative;
+        width: 45%;
+        float: left;
+        color: #d2d2d2;
+    }
+    .article-description{
+        padding-top: 50px;
+    }
+    /* responsive design header */
+    .jumbotron{
+        height: 270px;
+    }
+
+}
+@media only screen and (min-width: 751px) and (max-width: 987px){
+    .article-description{
+        padding-top: 80px;
+    }
+}
+.carousel-item{
+    max-height: 450px;
 }

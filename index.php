@@ -18,11 +18,13 @@
       // WHERE `status`= '1'";
       // $result = mysqli_query($con, $sql);
       // $categories = getArray($result);
+      $qs=array();
+
       if(isset($_GET["categorie_id"]) && $_GET["categorie_id"]>0){
         //fac o variabila $termen unde curat ce primesc prin GET, variabila o trimit in query si o afisez la value la input
         $id_categorie = mysqli_real_escape_string($con, $_GET["categorie_id"]);
-        $where = "`articole`.`id_categorie`= '".$id_categorie."'";
-        
+        $where ="`articole`.`id_categorie`= '".$id_categorie."'";
+        $qs[]= "categorie_id=".$id_categorie;
         /* cautare dupa un text
         = trebuie sa fie identic
         LIKE returneaza daca se potriveste intr-un camp
@@ -127,14 +129,16 @@
             <div class="image-media">
               <img class="image-description hover " src="./public/images/<?php echo  $poza_articol;?>" alt="Card image cap">
             </div>
-            <div class="entry-text">
-              <div class="publish-date transform-uppercase">
-                <?php echo date("d M Y", strtotime($article["data_adaugare"])); ?>
-              </div>
-              <div class="entry-author">
-                <i class="fas fa-user"></i>
-                <div class="author-username transform-uppercase">
-                  <?php echo $article["nume_utilizator"]; ?> 
+              <div class="entry-text">
+              <div class="lg-hidden-entry">
+                <div class="publish-date transform-uppercase">
+                  <?php echo date("d M Y", strtotime($article["data_adaugare"])); ?>
+                </div>
+                <div class="entry-author d-none d-md-block">
+                  <i class="fas fa-user"></i>
+                  <div class="author-username transform-uppercase">
+                    <?php echo $article["nume_utilizator"]; ?> 
+                  </div>
                 </div>
               </div>
               <div class="entry-name ">
@@ -160,7 +164,15 @@
           <ul class="pagination justify-content-around mb-4">
            <?php if($page<$number_of_pages){ ?>
             <li class="page-item">
-              <a class="btn btn-custom" href="./index.php?page=<?php echo $page+1; ?>">&larr; Older</a>
+            <?php
+              if(count($qs)){
+                $url = "&".implode("&", $qs);
+              }
+              else{
+                $url = "";
+              }
+            ?>
+              <a class="btn btn-custom" href="./index.php?page=<?php echo $page+1; echo $url; ?>">&larr; Older</a>
             </li>
             <?php } ?>
 

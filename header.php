@@ -14,7 +14,24 @@
        <?php 
     }
     ?>
-    <title>Blog Home - Start Bootstrap Template</title>
+     <?php 
+    if(isset($meta_description) && !empty($meta_description)){  ?>
+       <meta name="og:description" content="<?php echo $meta_description; ?>"> 
+       <?php 
+    }
+    ?>
+     <?php 
+    if(isset($meta_image) && !empty($meta_image)){  ?>
+       <meta name="og:image" content="http://localhost/blog/public/images/<?php echo $meta_image; ?>"> 
+       <?php 
+    }
+    ?>
+    <?php
+    if(!isset($title)|| empty($title)){
+      $title = "My blog";
+    }
+    ?>
+    <title><?php echo $title; ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="./public/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +41,7 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Raleway:400,600,700" rel="stylesheet">
     <link href="./public/css/blog-home.css" rel="stylesheet">
     <link href="./public/css/style.css" rel="stylesheet">
-    
+    <link rel="icon" type="image/png" href="./public/images/logo.png">
     
 
   </head>
@@ -35,16 +52,6 @@
     <nav class="navbar navbar-expand-lg ">
       <div class="container">
         <a class="navbar-brand" id="nav-title" href="./">Personal Blog </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
       </div>
     </nav>
       

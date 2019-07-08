@@ -19,6 +19,7 @@
     <!-- Custom CSS -->
     <link href="../public/dist/css/sb-admin-2.css" rel="stylesheet">
     <link href="../public/css/style.css" rel="stylesheet">
+    <link href="../public/css/style_admin.css" rel="stylesheet">
    
 
     <!-- Custom Fonts -->

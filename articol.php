@@ -41,6 +41,7 @@ $comentarii = getArray($rezultat);
 $meta_name = $articol["nume"];
 $meta_description = $articol["descriere"];
 $meta_image = $articol["poza"];
+$title = $articol["nume"];
   include("./header.php"); 
 ?>
 
@@ -176,13 +177,8 @@ $meta_image = $articol["poza"];
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
+    <?php include("./footer.php"); ?>
+    
     <!-- Bootstrap core JavaScript -->
     <script src="./public/vendor/jquery/jquery.min.js"></script>
     <script src="./public/js/bootstrap.min.js"></script>
